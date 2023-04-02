@@ -26,13 +26,12 @@
         --main-color: rgb(10, 88, 27);
         --sec-color: green;
         --container-width: 100vw;
-        --container-height: 95vh;
-        --container-bottom-margin: 5vh;
+        --container-height: 100vh;
     }
     .main-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: white;
+        color: var(--font-color);
     }
 </style>
