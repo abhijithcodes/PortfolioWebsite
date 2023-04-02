@@ -57,8 +57,7 @@
     .buttons-container {
         position: absolute;
         top:2rem;
-        right:0.5rem;
-
+        right:0.2rem;
         padding: 0.9rem;
     }
     .spin{
