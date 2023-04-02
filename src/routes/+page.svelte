@@ -22,9 +22,6 @@
         height: 100vh;
         width: 100vw;
     }
-<<<<<<< HEAD
-  
-=======
     :global(:root){
         --main-color: rgb(10, 88, 27);
         --sec-color: green;
@@ -32,16 +29,10 @@
         --container-height: 95vh;
         --container-bottom-margin: 5vh;
     }
->>>>>>> master
     .main-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-<<<<<<< HEAD
-        justify-content: center;
-        color: var(--font-color);
-=======
         color: white;
->>>>>>> master
     }
 </style>
