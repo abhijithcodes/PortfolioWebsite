@@ -14,9 +14,9 @@
         background-color: var(--main-color);
     }
      h2 {  
-        font-size: 5rem;
-        margin: 1rem;
-        padding: 0.3rem;
+        font-size: 4rem;
+        margin: 1rem 0.5rem;
+        padding: 0.3rem 0.1rem;
         height: 30vh;
         align-self: flex-start;
     }
