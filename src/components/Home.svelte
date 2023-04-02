@@ -48,7 +48,7 @@
         background-color:var(--main-color);
         height: var(--container-height);
         width: var(--container-width);
-        align-items: left;
+        align-items: flex-start;
         justify-content: center;
         font-family: 'Quantico', sans-serif;
         position: relative;

@@ -20,12 +20,12 @@
         margin: 0;
         padding: 0;
         height: 100vh;
-        width: 100vw;
+        width: 100%;
     }
     :global(:root){
         --main-color: rgb(10, 88, 27);
         --sec-color: green;
-        --container-width: 100vw;
+        --container-width: 100%;
         --container-height: 100vh;
     }
     .main-container {
