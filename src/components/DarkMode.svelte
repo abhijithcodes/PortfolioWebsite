@@ -1,7 +1,15 @@
 <script>
     import { isDark } from "./stores";
+    import { onMount } from "svelte";
 
-    let isButtonActive = {"sun": false, "moon": false}
+    let isButtonActive = {"sun": true, "moon": true}
+
+    onMount(()=>{ // add animation on reloading and then removing that class
+        setTimeout(()=>{
+            isButtonActive = {"sun": false, "moon": false}
+        }, 1000)
+        
+    })
 
     function handleFocus(id){
         isButtonActive = {...isButtonActive, [id]: true}
