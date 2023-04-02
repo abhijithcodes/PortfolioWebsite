@@ -46,13 +46,8 @@
         display: flex;
         flex-direction: column;
         background-color:var(--main-color);
-<<<<<<< HEAD
-        height: 100vh;
-        width: 100vw;
-=======
         height: var(--container-height);
         width: var(--container-width);
->>>>>>> master
         align-items: left;
         justify-content: center;
         font-family: 'Quantico', sans-serif;

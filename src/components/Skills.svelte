@@ -13,15 +13,9 @@
         flex-direction: column;
         background-color: var(--main-color);
     }
-<<<<<<< HEAD
-    h1 {  
-        font-size: 5rem;
-        margin: 0.3rem;
-=======
     h2 {  
         font-size: 5rem;
         margin: 1rem;
->>>>>>> master
         padding: 0.3rem;
         height: 30vh;
         align-self: flex-start;
