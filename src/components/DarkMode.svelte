@@ -58,9 +58,11 @@
 
     .fa-sun{
         font-size: 2rem;
+        color: var(--font-color)
     }
     .fa-moon{
         font-size: 2rem;
+        color: var(--font-color)
     }
     .buttons-container {
         position: absolute;
