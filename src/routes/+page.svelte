@@ -23,8 +23,6 @@
         width: 100%;
     }
     :global(:root){
-        --main-color: rgb(10, 88, 27);
-        --sec-color: green;
         --container-width: 100%;
         --container-height: 100vh;
     }

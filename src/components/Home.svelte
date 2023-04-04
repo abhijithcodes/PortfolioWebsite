@@ -3,6 +3,10 @@
     import { onMount } from "svelte";
     import { isDark } from "./stores";
 
+    let hello = "";
+    const hello_perm = "Hello!";
+    let intro = "";
+
     onMount(() => {
         const body = document.querySelector('body');
         
@@ -14,20 +18,44 @@
             body.classList.remove('dark-mode');
             }
         }
+
+        
+    function blinking(index) {
+      let visible = true;
+      if (index >= hello_perm.length) {
+        return;
+      }
+        hello += hello_perm[index];
+    //   setInterval(() => {
+	// 		visible = !visible;
+	// 		cursor.style.opacity = visible ? "1" : "0";
+	// 	}, 50);
+      
+      setTimeout(() => {
+        blinking(index + 1);
+      }, 1000);
+    }
+    
+    blinking(0);
   
   // Call the function once on mount to set the initial mode
-  toggleDarkMode();
+
+    toggleDarkMode();
+
   
   // Subscribe to changes in the store variable and update the mode accordingly
   isDark.subscribe(toggleDarkMode);
         });
-
 </script>
+  
 
 <div class="home-container">
-    <h1> Hello! </h1>
+    <span class="box">
+        <h1> {hello} </h1>
+    </span>
+   
     <DarkMode/>
-    <h2> This is Abhijith Mammoottil</h2>
+    <h2> {intro}</h2>
 </div>
 
 <style>
@@ -62,5 +90,26 @@
         margin: 0 0 0.3rem 0.6rem;
         padding: 0.3rem 0;
     }
+    .box h1::after {
+        content: "";
+        width: 1rem;
+        height: 7rem;
+        background: var(--font-color);
+        display: inline-block;
+        animation: cursor-blink 0.5s 15;
+        opacity: 0;
+    }
+    .box h1 {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+    @keyframes cursor-blink {
+        0% {
+            opacity: 0;
+        }
+        100%{
+            opacity: 100;
+        }
+    }
 </style>
-       
