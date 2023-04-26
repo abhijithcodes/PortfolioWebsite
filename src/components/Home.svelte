@@ -1,9 +1,13 @@
 <script>
     import DarkMode from "./DarkMode.svelte";
+    import Box from "./Box.svelte";
+
     import { onMount } from "svelte";
     import { isDark } from "./stores";
     import { writable } from 'svelte/store';
     
+    let isLoaded = false;
+
     let hello = writable("");
     const hello_perm = "Hello!";
     let intro = writable("");
@@ -38,6 +42,10 @@
         toggleDarkMode();
         // Subscribe to changes in the store variable and update the mode accordingly
         isDark.subscribe(toggleDarkMode);
+
+        setTimeout(()=>{
+            isLoaded = true
+        }, 1600)
     });
 
 </script>
@@ -52,9 +60,15 @@
 
     <div> 
         <span class="box">
-        <h2> {$intro} </h2>
+            <h2> {$intro} </h2>
         </span>
     </div>
+    {#if isLoaded}
+    <div class="custom-links">
+        <Box box_link="wwww.google.com" box_title="Github" />
+        <Box box_link="wwww.google.com" box_title="Linkedin" />
+    </div>
+    {/if}    
 </div>
 
 <style>
@@ -123,6 +137,33 @@
         }
         100%{
             opacity: 100;
+        }
+    }
+    
+    .custom-links{
+        margin: 2rem;
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 2rem;
+        right: 3rem;
+    }
+
+    @media (max-width: 768px){
+        .box h1{
+            position: absolute;
+            bottom: 27rem;
+        }
+        .box h2{
+            position: absolute;
+            bottom: 24rem;
+        }
+        .custom-links{
+            position : absolute;
+            bottom: 8rem;
+            left: 6rem;
         }
     }
 </style>
