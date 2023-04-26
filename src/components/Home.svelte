@@ -2,12 +2,15 @@
     import DarkMode from "./DarkMode.svelte";
     import { onMount } from "svelte";
     import { isDark } from "./stores";
-
-    let hello = "";
+    import { writable } from 'svelte/store';
+    
+    let hello = writable("");
     const hello_perm = "Hello!";
-    let intro = "";
+    let intro = writable("");
+    const intro_perm = "Welcome to my page...";
 
-    onMount(() => {
+    onMount(async() => {
+        
         const body = document.querySelector('body');
         
         function toggleDarkMode() {
@@ -19,43 +22,39 @@
             }
         }
 
+        async function blinking(index, sentence, op) {
+            if (index >= sentence.length) {
+                return;
+            }
+            op.update(value => value + sentence[index]);
+            await new Promise(resolve => setTimeout(resolve, 300));
+            return blinking(index + 1, sentence, op);
+        }
+
+        await blinking(0, hello_perm, hello);
+        await blinking(0, intro_perm, intro);
         
-    function blinking(index) {
-      let visible = true;
-      if (index >= hello_perm.length) {
-        return;
-      }
-        hello += hello_perm[index];
-    //   setInterval(() => {
-	// 		visible = !visible;
-	// 		cursor.style.opacity = visible ? "1" : "0";
-	// 	}, 50);
-      
-      setTimeout(() => {
-        blinking(index + 1);
-      }, 1000);
-    }
-    
-    blinking(0);
-  
-  // Call the function once on mount to set the initial mode
+        // Call the function once on mount to set the initial mode
+        toggleDarkMode();
+        // Subscribe to changes in the store variable and update the mode accordingly
+        isDark.subscribe(toggleDarkMode);
+    });
 
-    toggleDarkMode();
-
-  
-  // Subscribe to changes in the store variable and update the mode accordingly
-  isDark.subscribe(toggleDarkMode);
-        });
 </script>
   
 
 <div class="home-container">
     <span class="box">
-        <h1> {hello} </h1>
+        <h1> {$hello} </h1>
     </span>
    
     <DarkMode/>
-    <h2> {intro}</h2>
+
+    <div> 
+        <span class="box">
+        <h2> {$intro} </h2>
+        </span>
+    </div>
 </div>
 
 <style>
@@ -96,13 +95,27 @@
         height: 7rem;
         background: var(--font-color);
         display: inline-block;
-        animation: cursor-blink 0.5s 15;
+        animation: cursor-blink 0.5s 5;
         opacity: 0;
     }
     .box h1 {
         display: flex;
         align-items: center;
         gap: 2px;
+    }
+    .box h2 {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+    .box h2::after {
+        content: "";
+        width: 0.25rem;
+        height: 1.5rem;
+        background: var(--font-color);
+        display: inline-block;
+        animation: cursor-blink 0.5s 10 4s;
+        opacity: 0;
     }
     @keyframes cursor-blink {
         0% {
