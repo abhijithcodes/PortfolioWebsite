@@ -11,7 +11,7 @@
     let hello = writable("");
     const hello_perm = "Hello!";
     let intro = writable("");
-    const intro_perm = "Welcome to my page...";
+    const intro_perm = "Welcome to my page.";
 
     onMount(async() => {
         
@@ -73,13 +73,13 @@
 
 <style>
     :global(:root){
-        --main-color: rgb(10, 88, 27);
-        --sec-color: green;
+        --main-color: green;
+        --sec-color: rgb(10, 88, 27);
         --font-color: black;
     }
     :global(.dark-mode){
-        --main-color: purple;
-        --sec-color: violet;
+        --main-color: rgb(3, 1, 24);
+        --sec-color: rgb(3, 23, 41);
         --font-color: white;
     }
 
@@ -109,7 +109,7 @@
         height: 7rem;
         background: var(--font-color);
         display: inline-block;
-        animation: cursor-blink 0.5s 5;
+        animation: cursor-blink 0.5s 3;
         opacity: 0;
     }
     .box h1 {
@@ -128,7 +128,7 @@
         height: 1.5rem;
         background: var(--font-color);
         display: inline-block;
-        animation: cursor-blink 0.5s 10 4s;
+        animation: cursor-blink 0.5s 12 1.8s;
         opacity: 0;
     }
     @keyframes cursor-blink {
@@ -139,6 +139,7 @@
             opacity: 100;
         }
     }
+   
     
     .custom-links{
         margin: 2rem;
@@ -149,8 +150,22 @@
         position: absolute;
         bottom: 2rem;
         right: 3rem;
+        animation: box-appear 1s;
     }
 
+    @keyframes box-appear{
+        0% {
+            opacity:0;
+        }
+        50%{
+            opacity: 50;
+            transform: scale(1.05);
+        }
+        100%{
+            opacity: 100;
+            transform: scale(1.02);
+        }
+    }
     @media (max-width: 768px){
         .box h1{
             position: absolute;
@@ -164,6 +179,6 @@
             position : absolute;
             bottom: 8rem;
             left: 6rem;
-        }
+    }
     }
 </style>

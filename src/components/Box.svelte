@@ -26,6 +26,22 @@
     font-size: 2rem;
     }
 
+    .link-box:hover{
+        animation: scaling 0.5s;
+        background-color: rgb(9, 212, 36);
+    }
+
+    @keyframes scaling {
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(1.03);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
     @media(max-width:768px){
         .link-box{
             height: 2rem;
@@ -41,6 +57,6 @@
         text-decoration: none; /* Remove underline */
         color: currentColor; /* Use current color from parent element */
         font-size: 1.5rem;
-        }
+    }
     }
 </style>

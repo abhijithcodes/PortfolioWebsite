@@ -16,6 +16,7 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Quantico:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
     :global(body,html) {
         margin: 0;
         padding: 0;

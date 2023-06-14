@@ -12,6 +12,7 @@
         display: flex;
         flex-direction: column;
         background-color: var(--main-color);
+        font-family: 'Lato', sans-serif;
     }
     h2 {  
         font-size: 4rem;
